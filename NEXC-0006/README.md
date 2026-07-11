@@ -2,7 +2,7 @@
 
 **Perfektion bis ins kleinste Detail.**
 
-➡️ **[Zur Website (index.html)](index.html)**
+➡️ **[Zur Website](https://nemesis-itservice.github.io/NEXC-0006/)**
 
 ## Zahlen, Daten, Fakten
 
