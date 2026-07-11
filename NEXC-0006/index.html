@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zwick Detailing – Fahrzeugaufbereitung & Autopflege in Breisach seit 2014</title>
+<meta name="description" content="Professionelle Fahrzeugaufbereitung & Car Detailing: Keramik- & Graphenversiegelung, Lackaufbereitung, Innenraumreinigung mit Heißdampf – in Breisach, Freiburg & dem Markgräflerland.">
+<meta property="og:title" content="Zwick Detailing – Fahrzeugaufbereitung & Pflege seit 2014">
+<meta property="og:description" content="Autoaufbereitung & Car Detailing mit Keramik-/Graphenversiegelung, Heißdampfreinigung & Desinfektion – für Kunden aus Breisach & Umgebung.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zwickdetailing.de/">
+<link rel="icon" href="Logo.png" type="image/png">
+<style>
+:root{
+  --red:#d31027;
+  --red-dark:#9a0c1d;
+  --bg:#fafafb;
+  --bg-alt:#f0f0f3;
+  --card:#ffffff;
+  --line:#e4e4e9;
+  --text:#1c1c22;
+  --muted:#5b5b66;
+  --star:#f6b100;
+  --radius:14px;
+  --shadow:0 4px 18px rgba(20,20,30,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1140px,92%);margin:0 auto}
+section{padding:80px 0}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;letter-spacing:.5px;margin-bottom:14px}
+.sub{color:var(--muted);max-width:720px;margin-bottom:44px}
+.accent{color:var(--red)}
+.kicker{display:inline-block;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;margin-bottom:12px}
+
+/* Header */
+header{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav .logo img{height:46px;width:auto}
+.nav ul{display:flex;gap:24px;list-style:none}
+.nav ul a{font-size:.95rem;color:var(--muted);transition:color .2s}
+.nav ul a:hover{color:var(--text)}
+.nav .cta{background:var(--red);color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:.9rem;transition:background .2s}
+.nav .cta:hover{background:var(--red-dark)}
+.burger{display:none;background:none;border:none;color:var(--text);font-size:1.7rem;cursor:pointer}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 0 90px;
+  background:linear-gradient(rgba(250,250,251,.86),rgba(250,250,251,.95)),url('https://cdn.sumup.store/shops/10519893/settings/th1024/73f4698e-3181-444d-b5df-01e987712f1a.jpeg') center/cover no-repeat}
+.hero .container{max-width:860px;text-align:center}
+.hero img.hero-logo{height:110px;width:auto;margin:0 auto 30px;filter:drop-shadow(0 4px 16px rgba(211,16,39,.18))}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.15;margin-bottom:20px}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:640px;margin:0 auto 36px}
+.btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:999px;font-weight:700;font-size:1rem;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;box-shadow:0 8px 24px rgba(211,16,39,.28)}
+.btn-ghost{border:1.5px solid #d3d3da;color:var(--text);background:#fff}
+.badges{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:52px;color:var(--muted);font-size:.92rem}
+.badges span strong{color:var(--text)}
+
+/* Leistungen */
+.grid{display:grid;gap:24px}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--red)}
+.card .icon{font-size:2rem;margin-bottom:16px}
+.card h3{font-size:1.15rem;margin-bottom:12px}
+.card p, .card li{color:var(--muted);font-size:.95rem}
+.card ul{list-style:none;margin-top:8px}
+.card li{padding-left:20px;position:relative;margin-bottom:8px}
+.card li::before{content:"›";color:var(--red);position:absolute;left:0;font-weight:800}
+
+/* Workshop */
+.workshop{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center}
+.workshop h3{font-size:1.6rem;margin-bottom:16px}
+.workshop p{color:var(--muted);margin-bottom:14px}
+.workshop ul{list-style:none;margin:18px 0}
+.workshop li{padding-left:26px;position:relative;margin-bottom:10px;color:var(--muted)}
+.workshop li::before{content:"✓";color:var(--red);position:absolute;left:0;font-weight:800}
+.workshop .facts{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.workshop .facts div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.workshop .facts div:last-child{border-bottom:none}
+.workshop .facts span:first-child{color:var(--muted)}
+
+/* Über uns */
+.about{background:var(--bg-alt)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.about-grid p{color:var(--muted);margin-bottom:16px}
+.about-grid p strong{color:var(--text)}
+.checklist{list-style:none;margin-top:6px}
+.checklist li{padding:11px 0 11px 34px;position:relative;color:var(--muted);border-bottom:1px solid var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:"✅";position:absolute;left:0}
+.quote{border-left:3px solid var(--red);padding:6px 0 6px 20px;margin-top:22px;font-style:italic;color:var(--text)}
+
+/* Bewertungen */
+.stars{color:var(--star);font-size:1.15rem;letter-spacing:3px}
+.review-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:36px}
+.review-head .score{font-size:2.4rem;font-weight:900}
+.review-head .meta{color:var(--muted);font-size:.92rem}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:36px}
+.review-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+.review-card .stars{font-size:1rem;margin-bottom:12px}
+.review-card p{color:var(--muted);font-size:.95rem;font-style:italic;margin-bottom:16px}
+.review-card .who{display:flex;align-items:center;gap:12px}
+.review-card .avatar{width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.review-card .who span{font-weight:600;font-size:.92rem}
+.review-card .who small{display:block;color:var(--muted);font-weight:400}
+.g-logo{font-weight:800;font-size:1.3rem}
+.g-logo .b{color:#4285f4}.g-logo .r{color:#ea4335}.g-logo .y{color:#fbbc04}.g-logo .g{color:#34a853}
+
+/* Partner & Zertifikate */
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:22px;margin-bottom:48px}
+.logo-grid .logo-tile{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;display:flex;align-items:center;justify-content:center;min-height:120px}
+.logo-grid img{max-height:80px;width:auto;object-fit:contain}
+.info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.cert-list{list-style:none}
+.cert-list li{padding:14px 0 14px 34px;position:relative;color:var(--muted);border-bottom:1px solid var(--line)}
+.cert-list li:last-child{border-bottom:none}
+.cert-list li::before{content:"🏅";position:absolute;left:0}
+.cert-list strong{color:var(--text)}
+
+/* Kontakt */
+.contact{background:var(--bg-alt)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.contact .card h3{margin-bottom:18px}
+.contact .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;color:var(--muted)}
+.contact .row .ic{color:var(--red);font-size:1.2rem;line-height:1.4;flex:0 0 auto}
+.contact .row .ic svg{width:20px;height:20px;fill:var(--red);margin-top:4px}
+.contact .row a:hover{color:var(--text)}
+.map-link{display:inline-block;margin-top:6px;color:var(--red);font-weight:600}
+.map-link:hover{text-decoration:underline}
+
+/* Social Icons */
+.social{display:flex;gap:14px;margin-top:14px}
+.social a{width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .2s,transform .15s}
+.social a:hover{border-color:var(--red);transform:translateY(-2px)}
+.social svg{width:20px;height:20px;fill:var(--text)}
+.social a:hover svg{fill:var(--red)}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:44px 0 28px;background:var(--bg-alt)}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:28px}
+.foot img{height:44px;width:auto}
+.foot ul{list-style:none}
+.foot li{margin-bottom:8px}
+.foot a{color:var(--muted);font-size:.92rem}
+.foot a:hover{color:var(--text)}
+.foot h4{font-size:.95rem;margin-bottom:14px;text-transform:uppercase;letter-spacing:2px}
+.copy{text-align:center;color:#8a8a93;font-size:.85rem;border-top:1px solid var(--line);padding-top:22px}
+
+/* WhatsApp float */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:90;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .15s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+@media(max-width:860px){
+  .nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg);flex-direction:column;padding:24px 6%;gap:18px;border-bottom:1px solid var(--line)}
+  .nav ul.open{display:flex}
+  .burger{display:block}
+  .nav .cta{display:none}
+  .workshop{grid-template-columns:1fr;padding:32px 24px}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#start"><img src="Logo.png" alt="Zwick Detailing – seit 2014"></a>
+    <ul id="menu">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#bewertungen">Bewertungen</a></li>
+      <li><a href="#partner">Partner</a></li>
+      <li><a href="#zertifikate">Zertifikate</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="cta" href="#kontakt">Termin sichern</a>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')" aria-label="Menü">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="start">
+  <div class="container">
+    <img class="hero-logo" src="Logo.png" alt="Zwick Detailing Logo">
+    <h1>Perfektion bis ins <span class="accent">kleinste Detail</span></h1>
+    <p>Professionelle Fahrzeugaufbereitung für perfekten Glanz. Von Innenraumreinigung bis Lackveredelung: Wir bringen jedes Detail zum Strahlen – in Breisach, Freiburg, dem Markgräflerland und Umgebung.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://wa.me/+491724098477" target="_blank" rel="noopener">WhatsApp-Anfrage</a>
+      <a class="btn btn-ghost" href="tel:+491724098477">📞 0172 409 8477</a>
+    </div>
+    <div class="badges">
+      <span><strong>Seit 2014</strong> · über 10 Jahre Erfahrung</span>
+      <span><strong>IDA</strong> Certified Detailer</span>
+      <span><strong>Mobil</strong> auch bei Ihnen vor Ort</span>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="container">
+    <span class="kicker">Leistungen</span>
+    <h2>Unsere Leistungen für Ihr <span class="accent">perfektes Auto</span></h2>
+    <p class="sub">Ihr Fahrzeug ist mehr als nur ein Fortbewegungsmittel – es ist Leidenschaft, Wertanlage und Ausdruck Ihrer Persönlichkeit. Wir kombinieren Leidenschaft, Erfahrung und modernste Technologien, flexibel und individuell auf Ihre Wünsche abgestimmt.</p>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="icon">🚗</div>
+        <h3>Lackaufbereitung & Lackveredelung</h3>
+        <ul>
+          <li>Entfernung von Kratzern, Swirls und Oxidationen</li>
+          <li>Aufbereitung für maximalen Glanz und nachhaltigen Werterhalt</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>Keramik- & Graphenversiegelung</h3>
+        <ul>
+          <li>Hochmoderne Schutztechnologien für langanhaltenden Lackschutz</li>
+          <li>Hydrophobe Oberflächen für leichte Reinigung und strahlenden Glanz</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">🧼</div>
+        <h3>Innenraumreinigung & Fahrzeugpflege</h3>
+        <ul>
+          <li>Gründliche Aufbereitung von Polstern, Leder, Kunststoff und Armaturen</li>
+          <li>Trocken-Heiß-Dampf-Technologie: chemiefreie Reinigung & Desinfektion</li>
+          <li>Schutzbehandlungen für langanhaltende Sauberkeit</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">🚐</div>
+        <h3>Mobile Fahrzeugpflege vor Ort</h3>
+        <ul>
+          <li>Pflegearbeiten mobil bei Ihnen zu Hause</li>
+          <li>Voraussetzung: Stromanschluss & ausreichend große, saubere Garage</li>
+          <li>Für mobile Einsätze fallen zusätzliche Fahrtkosten an</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section id="workshops" style="padding-top:0">
+  <div class="container">
+    <div class="workshop">
+      <div>
+        <span class="kicker">Exklusiv</span>
+        <h3>🎓 Autopflege-Workshops für Einsteiger & Fortgeschrittene</h3>
+        <p>Ideal für alle, die ihre Leidenschaft für Autopflege vertiefen oder professionelle Ergebnisse zu Hause erzielen möchten.</p>
+        <ul>
+          <li>Nachhaltige Lackpflege: richtige Handwäsche & Utensilienkunde</li>
+          <li>Aufbau und Struktur von Autolacken</li>
+          <li>Poliertechniken mit verschiedenen Maschinen</li>
+          <li>Aufbau und Wirkungsweise von Polituren</li>
+          <li>Nützliches Zubehör & Tools für die professionelle Fahrzeugpflege</li>
+        </ul>
+        <a class="btn btn-primary" href="#kontakt">Workshop anfragen</a>
+      </div>
+      <div class="facts">
+        <div><span>Dauer</span><span>ganztägig</span></div>
+        <div><span>Teilnehmer</span><span>Einzeln oder Gruppen bis 5 Personen</span></div>
+        <div><span>Praxis</span><span>Durchführung am Kundenfahrzeug</span></div>
+        <div><span>Verpflegung</span><span>im Preis inbegriffen</span></div>
+        <div><span>Equipment</span><span>Eigene Maschinen & Polituren willkommen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section class="about" id="ueber-uns">
+  <div class="container">
+    <span class="kicker">Über uns</span>
+    <h2>Wie aus einem Hobby eine <span class="accent">Leidenschaft</span> wurde</h2>
+    <p class="sub">Ob Premium-Fahrzeug, Oldtimer oder Alltagsauto – bei Zwick Detailing erhält jedes Fahrzeug die Pflege, die es verdient.</p>
+    <div class="about-grid">
+      <div>
+        <h3 style="margin-bottom:14px">Warum Zwick Detailing?</h3>
+        <ul class="checklist">
+          <li>Über 10 Jahre Erfahrung in der professionellen Fahrzeugpflege</li>
+          <li>Hochwertige Produkte und neueste Techniken</li>
+          <li>Individuelle Beratung und maßgeschneiderte Pflegekonzepte</li>
+          <li>Leidenschaft für Perfektion – 100 % Kundenzufriedenheit als Ziel</li>
+          <li>Flexible Termine – auf Wunsch auch mobile Fahrzeugpflege vor Ort</li>
+          <li>Professionelle Autopflege-Workshops für alle, die mehr erreichen wollen</li>
+        </ul>
+      </div>
+      <div>
+        <p>Bei mir steht <strong>der Kunde im Mittelpunkt</strong> – das ist nicht nur ein Grundsatz, sondern meine persönliche Überzeugung.</p>
+        <p>Jedes Fahrzeug ist für mich <strong>ein individuelles Projekt</strong>, das mit größter Sorgfalt behandelt wird – bei mir gibt es keine Massenware oder 08/15-Lösungen.</p>
+        <p>Vom <strong>ersten Beratungsgespräch</strong>, über die <strong>Begutachtung Ihres Fahrzeugs</strong>, bis hin zur <strong>maßgeschneiderten Aufbereitung</strong>: Sie werden von mir persönlich und durchgehend betreut.</p>
+        <p>Ich bin <strong>mein größter Kritiker</strong> und strebe stets nach Perfektion – durch kontinuierliche Weiterbildung, Workshops und Zertifizierungen führender Hersteller, deren Produkte ich professionell verarbeite.</p>
+        <p class="quote">„Das Detailing ist meine Leidenschaft, nicht einfach nur ein Beruf."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEWERTUNGEN -->
+<section id="bewertungen">
+  <div class="container">
+    <span class="kicker">Bewertungen</span>
+    <h2>Das sagen unsere <span class="accent">Kunden</span></h2>
+    <div class="review-head">
+      <span class="g-logo"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></span>
+      <span class="score">5,0</span>
+      <span class="stars">★★★★★</span>
+      <span class="meta">basierend auf Google-Rezensionen</span>
+    </div>
+    <div class="review-grid">
+      <!-- PLATZHALTER: Texte durch echte Google-Rezensionen ersetzen -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>„Mein Auto sah nach der Aufbereitung aus wie am ersten Tag. Absolute Perfektion bis ins kleinste Detail – jederzeit wieder!"</p>
+        <div class="who">
+          <div class="avatar">M</div>
+          <span>M. Müller<small>Google-Rezension</small></span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>„Sehr freundliche und kompetente Beratung. Die Keramikversiegelung ist jeden Cent wert – der Lack glänzt wie nie zuvor."</p>
+        <div class="who">
+          <div class="avatar">S</div>
+          <span>S. Schneider<small>Google-Rezension</small></span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>„Top Handwerk und ehrliche Preise. Man merkt sofort, dass hier mit Leidenschaft gearbeitet wird. Klare Empfehlung!"</p>
+        <div class="who">
+          <div class="avatar">T</div>
+          <span>T. Weber<small>Google-Rezension</small></span>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row" style="justify-content:flex-start">
+      <a class="btn btn-ghost" href="https://www.google.com/search?q=Zwick+Detailing+Breisach+Bewertungen" target="_blank" rel="noopener">Alle Bewertungen auf Google ansehen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section id="partner" style="padding-top:0">
+  <div class="container">
+    <span class="kicker">Partner</span>
+    <h2>Starke <span class="accent">Partner</span> an meiner Seite</h2>
+    <div class="logo-grid">
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/f52454dd-6585-4865-a252-52266486062c.png" alt="Partner-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/3eddac46-272b-48d4-ae75-75822c59516a.png" alt="Partner-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/2df88b34-95bc-438c-a145-894eaf16c236.png" alt="Partner-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/3795fb34-46ae-4592-a304-086bde3bc29a.png" alt="Partner-Logo" loading="lazy"></div>
+    </div>
+    <div class="info-cards">
+      <div class="card">
+        <h3>Weber-Strahltechnik</h3>
+        <p>Bietet an derselben Adresse Trockeneisstrahlen sowie Trockeneisreinigungen von Unterböden an – ideal für die Restauration von Oldtimern, Youngtimern und die industrielle Motorwäsche mit Trockeneis.</p>
+      </div>
+      <div class="card">
+        <h3>The Rag Company (TRC) Deutschland</h3>
+        <p>Als Business Partner haben Sie über mich exklusiv die Möglichkeit, hochwertiges Autopflegezubehör direkt vom Händler zu beziehen – Premium-Mikrofasertücher und innovative Reinigungsprodukte.</p>
+      </div>
+      <div class="card">
+        <h3>NEMESIS - IT Services</h3>
+        <p>Mein verlässlicher Partner beim Web-Design sowie bei der Einrichtung der Kartenzahlung über SumUp. Official Agency Partner von IONOS.</p>
+      </div>
+      <div class="card">
+        <h3>Design Manufaktur Loy</h3>
+        <p>Patrick Loy ist mein persönlicher Ansprechpartner in Sachen Werbung und Bekleidung – von Beschriftungen und Textildruck bis hin zu Grafik-Design für Firmen, Privat oder Vereine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZERTIFIKATE -->
+<section id="zertifikate" style="padding-top:0">
+  <div class="container">
+    <span class="kicker">Zertifikate</span>
+    <h2>Zertifizierungen & <span class="accent">Qualifikationen</span></h2>
+    <div class="logo-grid">
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/d7f61ed7-67c2-4098-906e-136acfa2141c.png" alt="Zertifikat-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/34dcc0a4-a19d-485a-8d1a-90baf8fbdab2.png" alt="Zertifikat-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/f06d28df-a319-4664-80e8-f15fc531a364.png" alt="Zertifikat-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/c5748b04-81ca-4516-afbd-552bccc5b2f2.png" alt="Zertifikat-Logo" loading="lazy"></div>
+      <div class="logo-tile"><img src="https://cdn.sumup.store/shops/10519893/settings/th1024/1a756764-90d4-409e-b856-97311b566a64.png" alt="Zertifikat-Logo" loading="lazy"></div>
+    </div>
+    <ul class="cert-list">
+      <li>Zertifizierter Anwender der <strong>CarPro Professional</strong> Keramikbeschichtungen</li>
+      <li>Zertifizierter Anwender der <strong>artdeshine Nano-Graphene-Coatings</strong></li>
+      <li>Zertifizierter Anwender von <strong>LederMax</strong> Lederpflege- & Reparatur-Produkten</li>
+      <li>Zertifizierter Anwender von <strong>nanolex</strong> Keramikbeschichtungen</li>
+      <li>Seit 2023 Mitglied im Germany Chapter der <strong>IDA (International Detailing Association)</strong> – zertifiziert als CD (Certified Detailer) und erfolgreich absolvierte „SV" (Skills Validated)-Prüfung</li>
+    </ul>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="container">
+    <span class="kicker">Kontakt</span>
+    <h2>Jetzt <span class="accent">Termin sichern</span> und den Unterschied erleben</h2>
+    <p class="sub">Lassen Sie sich persönlich beraten – Ihre professionelle Autopflege in Breisach, Freiburg, dem Markgräflerland und Umgebung.</p>
+    <div class="contact-grid">
+      <div class="card">
+        <h3>So erreichen Sie uns</h3>
+        <div class="row"><span class="ic">💬</span><span><a href="https://wa.me/+491724098477" target="_blank" rel="noopener"><strong>WhatsApp:</strong> 0172 409 8477</a></span></div>
+        <div class="row"><span class="ic">📞</span><span><a href="tel:+491724098477"><strong>Telefon:</strong> 0172 409 8477</a></span></div>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:24px">
+          <a class="btn btn-primary" href="https://wa.me/+491724098477" target="_blank" rel="noopener">WhatsApp öffnen</a>
+          <a class="btn btn-ghost" href="tel:+491724098477">Anrufen</a>
+        </div>
+        <h3 style="margin-top:30px">Folgen Sie uns</h3>
+        <div class="social">
+          <a href="https://instagram.com/zwickdetailing" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 3.99zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@zwickdetailing" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="https://facebook.com/ZwickDetailing" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+          </a>
+          <a href="https://wa.me/+491724098477" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.7 3.8.7 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.2 0-2.4-.2-3.5-.7l-.5-.2-4.9.9 1-4.7-.3-.5c-1-1.6-1.5-3.4-1.5-5.3 0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.5 10.5-9.9 10.5zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Anfahrt & Öffnungszeiten</h3>
+        <div class="row"><span class="ic">📍</span><span>Industriestraße 8<br>79206 Breisach am Rhein-Niederrimsingen<br>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Zwick+Detailing+Industriestra%C3%9Fe+8+79206+Breisach+am+Rhein" target="_blank" rel="noopener">Route in Google Maps planen →</a></span></div>
+        <div class="row"><span class="ic">🕒</span><span>Öffnungszeiten und Termine ausschließlich nach vorheriger telefonischer Absprache.<br>Grundsätzlich nur am Wochenende geöffnet.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <img src="Logo.png" alt="Zwick Detailing">
+        <p style="color:var(--muted);font-size:.9rem;margin-top:14px;max-width:280px">Professionelle Fahrzeugaufbereitung & Autopflege seit 2014 – Breisach, Freiburg & Markgräflerland.</p>
+        <div class="social">
+          <a href="https://instagram.com/zwickdetailing" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 3.99zm7.85-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@zwickdetailing" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="https://facebook.com/ZwickDetailing" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+          </a>
+          <a href="https://wa.me/+491724098477" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.7 3.8.7 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.2 0-2.4-.2-3.5-.7l-.5-.2-4.9.9 1-4.7-.3-.5c-1-1.6-1.5-3.4-1.5-5.3 0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.5 10.5-9.9 10.5zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#workshops">Workshops</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#bewertungen">Bewertungen</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="agb.html">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 Zwick Detailing – Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/+491724098477" target="_blank" rel="noopener" aria-label="WhatsApp Chat starten">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.7 3.8.7 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.2 0-2.4-.2-3.5-.7l-.5-.2-4.9.9 1-4.7-.3-.5c-1-1.6-1.5-3.4-1.5-5.3 0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.5 10.5-9.9 10.5zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+</body>
+</html>
