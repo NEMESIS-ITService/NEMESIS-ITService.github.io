@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt | Tree Top GmbH</title>
+  <meta name="description" content="Kontaktieren Sie die Tree Top GmbH: Beratungstermin vereinbaren für Sicherheitsdienstleistungen, Academy-Lehrgänge und Facility Service.">
+  <link rel="icon" href="https://tree-top.eu/wp-content/uploads/2021/06/cropped-logo-einzeln-transparent2-1-270x270.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span class="locations">STANDORTE: BADEN-BADEN | MÜNCHEN | BODENSEE</span>
+      <div class="social">
+        <a href="tel:+498923147028">+49 89 23 14 70 28</a>
+        <a href="mailto:service@tree-top.eu">service@tree-top.eu</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="brand-name">Tree Top</span>
+        <span class="brand-sub">Safety | Security | Service | Support</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menü öffnen">MENÜ</button>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="security.html">Security</a>
+        <a href="academy.html">Academy</a>
+        <a href="service.html">Service</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="about.html">About Us</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero small">
+    <div class="container">
+      <p class="kicker">Kontakt</p>
+      <h1>Kontaktieren Sie uns.</h1>
+      <p class="lead">Vereinbaren Sie einen unverbindlichen Beratungstermin – wir sind jederzeit Ihr Ansprechpartner rund um Sicherheit.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="info-block">
+            <h3>Hauptsitz</h3>
+            <p>Tree Top GmbH<br>Wilhelm-Maybach-Ring 1<br>76532 Baden-Baden</p>
+          </div>
+          <div class="info-block">
+            <h3>Betriebsstätte</h3>
+            <p>Ehrenbreitsteiner Str. 20<br>80993 München</p>
+          </div>
+          <div class="info-block">
+            <h3>Telefon</h3>
+            <p><a href="tel:+498923147028">+49 89 23 14 70 28</a></p>
+          </div>
+          <div class="info-block">
+            <h3>E-Mail</h3>
+            <p>
+              Allgemein: <a href="mailto:service@tree-top.eu">service@tree-top.eu</a><br>
+              Academy: <a href="mailto:academy@tree-top.eu">academy@tree-top.eu</a><br>
+              Bewerbungen: <a href="mailto:bewerbung@tree-top.eu">bewerbung@tree-top.eu</a>
+            </p>
+          </div>
+          <div class="info-block">
+            <h3>Social Media</h3>
+            <p>
+              <a href="https://www.facebook.com/TreeTopGmbH" target="_blank" rel="noopener">Facebook</a> ·
+              <a href="https://www.instagram.com/tree_top_gmbh/" target="_blank" rel="noopener">Instagram</a> ·
+              <a href="https://www.linkedin.com/company/28478093/" target="_blank" rel="noopener">LinkedIn</a> ·
+              <a href="https://www.xing.com/pages/treetopgmbh-schutz-sicherheit-dienstleister-berater-ausbilder" target="_blank" rel="noopener">Xing</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <!--
+            WICHTIG: Formspree-Formular-ID eintragen!
+            1. Kostenloses Konto auf https://formspree.io anlegen
+            2. Neues Formular für service@tree-top.eu erstellen
+            3. Die Form-ID unten in der action-URL ersetzen (statt DEINE_FORM_ID)
+          -->
+          <form action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="subject">Betreff</label>
+              <select id="subject" name="betreff">
+                <option>Beratungstermin</option>
+                <option>Security &amp; Safety</option>
+                <option>Academy / Lehrgänge</option>
+                <option>Facility Service</option>
+                <option>Sonstige Anfrage</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Nachricht</label>
+              <textarea id="message" name="nachricht" required></textarea>
+            </div>
+            <div class="field checkbox">
+              <input type="checkbox" id="privacy" required>
+              <label for="privacy" style="text-transform:none; letter-spacing:0; font-family:var(--font-body); font-size:13.5px">Hiermit akzeptiere ich die <a href="datenschutz.html">Datenschutzerklärung</a></label>
+            </div>
+            <button type="submit" class="btn solid">Senden</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Tree Top GmbH</h4>
+          <p>EXPERTISE für Safety | Security | Service | Support</p>
+          <p style="margin-top:12px">Wilhelm-Maybach-Ring 1<br>76532 Baden-Baden</p>
+        </div>
+        <div>
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="security.html">Security &amp; Safety</a></li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="service.html">Facility Service</a></li>
+            <li><a href="https://www.black-sheriff.eu/" target="_blank" rel="noopener">Equipment-Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="karriere.html">Karriere</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+498923147028">+49 89 23 14 70 28</a></li>
+            <li><a href="mailto:service@tree-top.eu">service@tree-top.eu</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Tree Top GmbH</span>
+        <span class="legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
