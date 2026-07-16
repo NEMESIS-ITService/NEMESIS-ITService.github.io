@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esso-Station Burgert – Tanken, Waschen, Punkten &amp; Einkaufen in Achern</title>
+<meta name="description" content="Esso-Station Burgert in Achern an der B3: Esso Markenkraftstoffe, LPG-Autogas, 2 Portalwaschanlagen, Shop mit Backwaren und DeutschlandCard. Fautenbacher Straße 20, 77855 Achern.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e4002b;
+  --red-dark:#c00023;
+  --blue:#003da5;
+  --blue-dark:#00276b;
+  --ink:#0f1b2d;
+  --muted:#5b6b7f;
+  --bg:#ffffff;
+  --bg-soft:#f5f7fa;
+  --line:#e6eaf0;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(15,27,45,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1140px,92%);margin:0 auto}
+section{padding:88px 0}
+.section-head{max-width:640px;margin:0 auto 48px;text-align:center}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);background:rgba(228,0,43,.08);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;letter-spacing:-.02em}
+.section-head p{color:var(--muted);margin-top:12px}
+
+/* ── Navigation ─────────────────────────── */
+header{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.brand-logo{height:44px;width:auto;display:block}
+.brand-text{line-height:1.15}
+.brand-text small{display:block;font-weight:600;color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;font-weight:600;font-size:.94rem}
+.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:999px;transition:background .2s}
+.nav-cta:hover{background:var(--red-dark)}
+.nav-toggle{display:none}
+.hamburger{display:none;cursor:pointer;width:28px;height:22px;position:relative}
+.hamburger span{position:absolute;left:0;width:100%;height:3px;background:var(--ink);border-radius:2px;transition:.25s}
+.hamburger span:nth-child(1){top:0}.hamburger span:nth-child(2){top:9.5px}.hamburger span:nth-child(3){bottom:0}
+
+/* ── Hero ───────────────────────────────── */
+.hero{position:relative;padding:190px 0 110px;background:
+  radial-gradient(900px 480px at 85% -10%,rgba(0,61,165,.10),transparent 60%),
+  radial-gradient(700px 420px at -10% 20%,rgba(228,0,43,.08),transparent 60%),
+  linear-gradient(180deg,#fbfcfe 0%,#f2f5f9 100%);
+  overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50% 100%)}
+.hero-inner{max-width:760px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);padding:8px 16px;border-radius:999px;font-size:.85rem;font-weight:600;color:var(--muted);margin-bottom:26px}
+.hero-badge .dot{width:9px;height:9px;border-radius:50%;background:#1db954;box-shadow:0 0 0 4px rgba(29,185,84,.18)}
+h1{font-size:clamp(2.3rem,5.4vw,3.9rem);font-weight:900;letter-spacing:-.03em;line-height:1.08}
+h1 .accent{color:var(--red)}
+h1 .accent-blue{color:var(--blue)}
+.hero p.lead{margin:22px 0 34px;font-size:1.13rem;color:var(--muted);max-width:600px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;padding:15px 28px;border-radius:999px;font-size:1rem;transition:.2s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 12px 24px rgba(228,0,43,.25)}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.05rem;font-weight:800;letter-spacing:-.01em}
+.stat span{font-size:.85rem;color:var(--muted)}
+
+/* ── Leistungen ─────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(0,61,165,.35)}
+.card .icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:rgba(228,0,43,.08);color:var(--red)}
+.card:nth-child(even) .icon{background:rgba(0,61,165,.08);color:var(--blue)}
+.card h3{font-size:1.12rem;font-weight:800;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem}
+.icon svg{width:26px;height:26px}
+
+/* ── Waschanlage ────────────────────────── */
+.wash{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 100%);color:#fff;position:relative;overflow:hidden}
+.wash::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.05);top:-220px;right:-140px}
+.wash::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.05);bottom:-160px;left:-100px}
+.wash .eyebrow{color:#fff;background:rgba(255,255,255,.14)}
+.wash-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative;z-index:1}
+.wash h2{color:#fff}
+.wash p{color:rgba(255,255,255,.82);margin-top:14px}
+.wash ul{list-style:none;margin-top:26px;display:grid;gap:14px}
+.wash li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.wash li svg{flex:none;width:22px;height:22px;margin-top:2px;color:#7fd0ff}
+.tiger-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:38px 34px;backdrop-filter:blur(6px);text-align:center}
+.tiger-card .big{font-size:3rem}
+.tiger-card h3{font-size:1.4rem;font-weight:800;margin:10px 0 8px}
+.tiger-card p{margin:0;color:rgba(255,255,255,.85)}
+.tiger-card .btn{margin-top:24px;background:#fff;color:var(--blue-dark)}
+
+/* ── Shop ───────────────────────────────── */
+.shop{background:var(--bg-soft)}
+.shop-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.shop-highlight{background:#fff;border:1px solid var(--line);border-radius:22px;padding:38px 34px;box-shadow:var(--shadow);text-align:center}
+.shop-highlight .big{font-size:3rem}
+.shop-highlight h3{font-size:1.35rem;font-weight:800;margin:10px 0 8px}
+.shop-highlight p{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tag{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:.9rem;font-weight:600;color:var(--ink);box-shadow:0 4px 12px rgba(15,27,45,.05)}
+
+/* ── DeutschlandCard Banner ─────────────── */
+.punkte{padding:0}
+.punkte-banner{background:linear-gradient(120deg,var(--red) 0%,var(--red-dark) 100%);border-radius:26px;color:#fff;padding:56px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 24px 48px rgba(228,0,43,.28)}
+.punkte-banner h2{color:#fff;font-size:clamp(1.5rem,3vw,2.1rem)}
+.punkte-banner p{color:rgba(255,255,255,.88);margin-top:8px;max-width:560px}
+.punkte-banner .btn{background:#fff;color:var(--red-dark)}
+
+/* ── Öffnungszeiten ─────────────────────── */
+.hours-wrap{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:880px;margin:0 auto}
+.hours-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.hours-card table{width:100%;border-collapse:collapse}
+.hours-card td{padding:16px 26px;border-bottom:1px solid var(--line);font-size:.98rem}
+.hours-card tr:last-child td{border-bottom:none}
+.hours-card td:last-child{text-align:right;font-weight:700}
+.hours-note{background:linear-gradient(160deg,#f7f9fc,#eef2f8);border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.hours-note b{font-size:1.05rem}
+.hours-note p{color:var(--muted);font-size:.95rem}
+
+/* ── Kontakt ────────────────────────────── */
+.contact{background:var(--bg-soft)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:stretch}
+.contact-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:36px 34px}
+.contact-item{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.contact-item:last-of-type{border-bottom:none}
+.contact-item .icon{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(0,61,165,.08);color:var(--blue)}
+.contact-item .icon svg{width:22px;height:22px}
+.contact-item b{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:2px}
+.contact-item a{font-weight:600}
+.contact-item a:hover{color:var(--red)}
+.map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);min-height:420px}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+
+/* ── Footer ─────────────────────────────── */
+footer{background:var(--ink);color:#c3ccd8;padding:64px 0 34px}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:44px}
+footer h4{color:#fff;font-size:1rem;font-weight:700;margin-bottom:14px}
+footer p,footer li{font-size:.92rem}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a:hover{color:#fff}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px;color:#fff;font-weight:800}
+.footer-brand .brand-logo{height:38px;background:#fff;border-radius:10px;padding:4px 8px}
+.legal{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;margin-top:6px}
+.legal details{margin-bottom:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px}
+.legal summary{cursor:pointer;font-weight:700;color:#fff;font-size:.92rem}
+.legal details p{margin-top:10px;font-size:.85rem;color:#9aa7b6}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:26px;font-size:.85rem;color:#8794a4}
+.credit{font-family:'Courier New',monospace;color:var(--red);font-weight:700;white-space:nowrap;overflow:hidden;display:inline-block;max-width:100%;width:32ch;border-right:2px solid var(--red);animation:typing 3.2s steps(32) 1s both,blink .8s step-end infinite}
+@keyframes typing{from{width:0}to{width:32ch}}
+@keyframes blink{50%{border-color:transparent}}
+
+/* ── Mobile Aktionsleiste ───────────────── */
+.action-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:110;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 4% calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -8px 24px rgba(15,27,45,.10)}
+.action-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 10px;border-radius:999px}
+.action-bar .call{background:var(--red);color:#fff}
+.action-bar .route{background:var(--blue);color:#fff}
+.action-bar svg{width:18px;height:18px}
+
+/* ── Responsive ─────────────────────────── */
+@media(max-width:960px){
+  .grid{grid-template-columns:1fr 1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .wash-grid,.shop-grid,.contact-grid,.hours-wrap{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .punkte-banner{padding:40px 32px}
+}
+@media(max-width:720px){
+  html{scroll-padding-top:76px}
+  .nav{height:64px}
+  .brand-logo{height:38px}
+  .brand-text small{display:none}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:#fff;flex-direction:column;gap:0;border-bottom:1px solid var(--line);display:none;box-shadow:0 20px 40px rgba(15,27,45,.12)}
+  .nav-links a{padding:17px 6%;border-top:1px solid var(--line);color:var(--ink);font-size:1rem}
+  .nav-toggle:checked ~ .nav-links{display:flex}
+  .nav-toggle:checked ~ .hamburger span:nth-child(1){top:9.5px;transform:rotate(45deg)}
+  .nav-toggle:checked ~ .hamburger span:nth-child(2){opacity:0}
+  .nav-toggle:checked ~ .hamburger span:nth-child(3){bottom:9.5px;transform:rotate(-45deg)}
+  .hamburger{display:block}
+  .nav-cta span{display:none}
+  .nav-cta{padding:10px 12px}
+  section{padding:60px 0}
+  .section-head{margin-bottom:34px}
+  .grid{grid-template-columns:1fr;gap:16px}
+  .card{padding:24px 22px}
+  .hero{padding:128px 0 68px}
+  .hero-badge{font-size:.78rem;text-align:center}
+  .hero p.lead{font-size:1.02rem;margin:18px 0 26px}
+  .hero-actions .btn{flex:1;justify-content:center;padding:14px 18px;font-size:.95rem}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:12px;margin-top:44px}
+  .stat{padding:16px 16px}
+  .stat b{font-size:.98rem}
+  .stat span{font-size:.8rem}
+  .wash-grid,.shop-grid{gap:36px}
+  .tiger-card,.shop-highlight{padding:30px 24px}
+  .punkte-banner{padding:36px 26px;flex-direction:column;align-items:flex-start}
+  .punkte-banner .btn{width:100%;justify-content:center}
+  .hours-card td{padding:14px 18px;font-size:.92rem}
+  .hours-note{padding:26px 22px}
+  .contact-card{padding:26px 22px}
+  .map{min-height:300px}
+  .map iframe{min-height:300px}
+  .action-bar{display:flex}
+  footer{padding:56px 0 118px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .credit{font-size:.82rem}
+  .nav-links a,.action-bar a,.btn{min-height:44px}
+  .wash-grid,.shop-grid{gap:28px}
+  .shop-grid{grid-template-areas:"text" "highlight"}
+  .shop-grid > .shop-highlight{grid-area:highlight}
+  .shop-grid > div:last-child{grid-area:text}
+  .tags{gap:8px}
+  .tag{padding:8px 14px;font-size:.84rem}
+  .contact-item{padding:14px 0}
+  h2{font-size:clamp(1.5rem,6vw,2rem)}
+}
+@media(max-width:460px){
+  .container{width:92%}
+  .hero{padding:116px 0 56px}
+  .hero-badge{display:flex;font-size:.72rem;line-height:1.45;padding:8px 14px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:10px;margin-top:36px}
+  .stat{padding:14px 14px}
+  .stat b{font-size:.9rem}
+  .stat span{font-size:.75rem}
+  .tiger-card,.shop-highlight{padding:26px 18px}
+  .tiger-card .big,.shop-highlight .big{font-size:2.4rem}
+  .punkte-banner{padding:30px 20px;border-radius:20px}
+  .hours-card td{padding:12px 14px;font-size:.86rem}
+  .hours-card td:last-child{white-space:nowrap}
+  .contact-card{padding:22px 16px}
+  .contact-item .icon{width:38px;height:38px}
+  .map{min-height:260px}
+  .map iframe{min-height:260px}
+  .legal details{padding:12px 14px}
+  .credit{font-size:.72rem}
+  .action-bar a{font-size:.88rem;padding:12px 8px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ Navigation ══ -->
+<header>
+  <nav class="nav container">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="data:image/png;base64,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" alt="Esso Logo">
+      <span class="brand-text">Station Burgert<small>Achern an der B3</small></span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <div class="nav-links">
+      <a href="#leistungen" onclick="document.getElementById('nav-toggle').checked=false">Leistungen</a>
+      <a href="#waschanlage" onclick="document.getElementById('nav-toggle').checked=false">Waschanlage</a>
+      <a href="#shop" onclick="document.getElementById('nav-toggle').checked=false">Shop</a>
+      <a href="#oeffnungszeiten" onclick="document.getElementById('nav-toggle').checked=false">Öffnungszeiten</a>
+      <a href="#kontakt" onclick="document.getElementById('nav-toggle').checked=false">Kontakt</a>
+    </div>
+    <a class="nav-cta" href="tel:+49784121973">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>07841 / 21973</span>
+    </a>
+    <label for="nav-toggle" class="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></label>
+  </nav>
+</header>
+
+<!-- ══ Hero ══ -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-badge"><span class="dot"></span> Fautenbacher Straße 20 · 77855 Achern · direkt an der B3</div>
+    <h1>Tanken. <span class="accent">Waschen.</span><br>Punkten. <span class="accent-blue">Einkaufen.</span></h1>
+    <p class="lead">Ihre Esso-Station Burgert in Achern – zwischen Bühl und Offenburg, nur ca. 5 Fahrminuten von der Autobahnabfahrt Achern (A5). Alles an einem Ort, 7 Tage die Woche.</p>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="tel:+49784121973">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Jetzt anrufen
+      </a>
+      <a class="btn btn-ghost" href="#oeffnungszeiten">Öffnungszeiten ansehen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>4 in 1</b><span>Tanken, Waschen, Punkten &amp; Einkaufen</span></div>
+      <div class="stat"><b>2 Waschanlagen</b><span>Portalanlagen mit Tiger-Wäsche</span></div>
+      <div class="stat"><b>Backshop</b><span>Täglich frische Backwaren</span></div>
+      <div class="stat"><b>7 Tage die Woche</b><span>Auch sonn- &amp; feiertags geöffnet</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Leistungen ══ -->
+<section id="leistungen">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Unsere Leistungen</span>
+      <h2>Alles für Sie &amp; Ihr Fahrzeug</h2>
+      <p>Von Markenkraftstoffen über die Autowäsche bis zum schnellen Einkauf – bei uns bekommen Sie alles an einem Stopp.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18"/><path d="M2 22h12"/><path d="M13 9h3l3 3v6a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2v-4h-2"/><path d="M6 6h4v4H6z"/></svg></div>
+        <h3>Esso Markenkraftstoffe</h3>
+        <p>Hochwertige Esso Kraftstoffe und Mobil Öle für alle Fahrzeugtypen – Qualität, auf die Sie sich verlassen können.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+        <h3>LPG – Autogas</h3>
+        <p>Günstig und umweltschonend unterwegs: Bei uns tanken Sie auch LPG-Autogas – direkt an der Station.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18"/><path d="M5 17V9a2 2 0 0 1 2-2h7l4 4v6"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/><path d="M4 4l1.5 1.5M8 3l1 2M12 3.5 12.5 5"/></svg></div>
+        <h3>2 Portalwaschanlagen</h3>
+        <p>Glänzende Ergebnisse mit der Tiger-Wäsche: Zwei moderne Portalwaschanlagen mit verschiedenen Waschprogrammen.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3>Shop mit großem Sortiment</h3>
+        <p>Lebensmittel, gekühlte Getränke, Süßwaren, Zeitschriften, PKW-Zubehör und vieles mehr – schnell und unkompliziert.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a4 4 0 1 1 .8-7.92 5.5 5.5 0 0 1 10.6 1.42A3.5 3.5 0 0 1 17 19z"/></svg></div>
+        <h3>Frische Backwaren</h3>
+        <p>Der „kleinste Backshop der Welt": Täglich frische Backwaren – perfekt für die Pause zwischendurch.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+        <h3>Tanken &amp; Punkten</h3>
+        <p>Mit der DeutschlandCard sammeln Sie bei jedem Tanken und Einkaufen wertvolle Punkte – einfach an der Kasse vorzeigen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Waschanlage ══ -->
+<section class="wash" id="waschanlage">
+  <div class="container wash-grid">
+    <div>
+      <span class="eyebrow">Waschanlage</span>
+      <h2>Zwei Anlagen. Ein Ergebnis: Glanz.</h2>
+      <p>Gönnen Sie Ihrem Fahrzeug eine Wäsche, die es verdient. In unseren beiden Portalwaschanlagen bringen wir Ihr Auto mit der Tiger-Wäsche wieder zum Strahlen – schnell, gründlich und lackschonend.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>2 moderne Portalwaschanlagen – kaum Wartezeit</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Auswahl unterschiedlicher Waschprogramme für jeden Anspruch</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Staubsaugerplätze für die Innenreinigung</li>
+      </ul>
+    </div>
+    <div class="tiger-card">
+      <div class="big">🐯</div>
+      <h3>Die Tiger-Wäsche</h3>
+      <p>Kraftvoll wie ein Tiger, sanft zum Lack: unsere Markenwäsche für ein brillantes Finish – von der Schnellwäsche bis zum Rundum-Programm.</p>
+      <a class="btn" href="#kontakt">Fragen? Kontaktieren Sie uns</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Shop ══ -->
+<section class="shop" id="shop">
+  <div class="container shop-grid">
+    <div class="shop-highlight">
+      <div class="big">🥐</div>
+      <h3>Der „kleinste Backshop der Welt"</h3>
+      <p>Klein, aber oho: Bei uns gibt es täglich frische Backwaren – ofenwarm und lecker, ideal für unterwegs.</p>
+    </div>
+    <div>
+      <span class="eyebrow">Unser Shop</span>
+      <h2>Einkaufen, wenn andere geschlossen haben</h2>
+      <p style="color:var(--muted);margin-top:12px">Ob der schnelle Einkauf am Abend, Grillgut fürs Wochenende oder ein Geschenk in letzter Minute – unser Shop bietet Ihnen ein vielfältiges Sortiment mit langen Öffnungszeiten, auch sonn- und feiertags.</p>
+      <div class="tags">
+        <span class="tag">Lebensmittel</span>
+        <span class="tag">Gekühlte Getränke</span>
+        <span class="tag">Süßwaren</span>
+        <span class="tag">Grillgut</span>
+        <span class="tag">Bier &amp; Wein</span>
+        <span class="tag">Spirituosen</span>
+        <span class="tag">Zeitschriften</span>
+        <span class="tag">Tabakwaren</span>
+        <span class="tag">Blumen</span>
+        <span class="tag">Eis</span>
+        <span class="tag">Eiswürfel &amp; Crushed Ice</span>
+        <span class="tag">Geschenkartikel &amp; Gutscheinkarten</span>
+        <span class="tag">Handy-Prepaid-Karten</span>
+        <span class="tag">PKW-Zubehör</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Tanken & Punkten ══ -->
+<section class="punkte">
+  <div class="container">
+    <div class="punkte-banner">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.16);color:#fff">Tanken &amp; Punkten</span>
+        <h2>Bei jedem Tanken Punkte sammeln</h2>
+        <p>Mit der DeutschlandCard sammeln Sie bei uns bei jedem Einkauf und jeder Tankfüllung wertvolle Punkte – einfach an der Kasse vorzeigen und profitieren.</p>
+      </div>
+      <a class="btn" href="#kontakt">Mehr erfahren</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Öffnungszeiten ══ -->
+<section id="oeffnungszeiten">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Öffnungszeiten</span>
+      <h2>Wir sind lange für Sie da</h2>
+      <p>7 Tage die Woche geöffnet – auch sonn- und feiertags.</p>
+    </div>
+    <div class="hours-wrap">
+      <div class="hours-card">
+        <table>
+          <tr><td>Montag – Donnerstag</td><td>06:30 – 23:00 Uhr</td></tr>
+          <tr><td>Freitag &amp; Samstag</td><td>06:30 – 24:00 Uhr</td></tr>
+          <tr><td>Sonntag</td><td>08:00 – 23:00 Uhr</td></tr>
+        </table>
+      </div>
+      <div class="hours-note">
+        <b>Gut zu wissen</b>
+        <p>Sie erreichen uns bequem über die B3 zwischen Bühl und Offenburg – und in nur ca. 5 Fahrminuten von der A5-Abfahrt Achern.</p>
+        <a class="btn btn-red" style="align-self:flex-start" href="https://www.google.com/maps/search/?api=1&amp;query=Esso+Station+Fautenbacher+Stra%C3%9Fe+20+77855+Achern" target="_blank" rel="noopener">Route planen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Kontakt ══ -->
+<section class="contact" id="kontakt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Kontakt &amp; Anfahrt</span>
+      <h2>So finden Sie uns</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><b>Adresse</b>Esso-Station Burgert<br>Fautenbacher Straße 20<br>77855 Achern</div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><b>Telefon</b><a href="tel:+49784121973">07841 / 21973</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><b>E-Mail</b><a href="mailto:info@esso-achern.de">info@esso-achern.de</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+          <div><b>Facebook</b><a href="https://www.facebook.com/EssoAchern" target="_blank" rel="noopener">facebook.com/EssoAchern</a></div>
+        </div>
+      </div>
+      <div class="map">
+        <iframe title="Anfahrt zur Esso-Station Burgert" src="https://www.google.com/maps?q=Fautenbacher%20Stra%C3%9Fe%2020%2C%2077855%20Achern&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Footer ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img class="brand-logo" src="data:image/png;base64,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" alt="Esso Logo">
+          <span>Station Burgert</span>
+        </div>
+        <p>4 in 1: Tanken, Waschen, Punkten &amp; Einkaufen – Ihre Tankstelle an der B3 in Achern, zwischen Bühl und Offenburg.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#waschanlage">Waschanlage</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
+          <li><a href="#kontakt">Kontakt &amp; Anfahrt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Fautenbacher Straße 20, 77855 Achern</li>
+          <li><a href="tel:+49784121973">07841 / 21973</a></li>
+          <li><a href="mailto:info@esso-achern.de">info@esso-achern.de</a></li>
+          <li><a href="https://www.facebook.com/EssoAchern" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <details>
+        <summary>Impressum</summary>
+        <p>
+          Angaben gemäß § 5 DDG<br><br>
+          Esso-Station Burgert<br>
+          Inhaberin: Ulrike Burgert<br>
+          Fautenbacher Straße 20<br>
+          77855 Achern<br><br>
+          Telefon: 07841 / 21973<br>
+          E-Mail: info@esso-achern.de<br>
+          Steuernummer: 01118/18006<br><br>
+          Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:#c3ccd8;text-decoration:underline">https://ec.europa.eu/consumers/odr</a>. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </details>
+      <details>
+        <summary>Datenschutz</summary>
+        <p>
+          Diese Webseite ist eine rein informative Seite. Es werden keine Kontaktformulare betrieben und keine personenbezogenen Daten durch uns aktiv erhoben. Beim Aufruf der Seite werden durch den Hosting-Anbieter technisch notwendige Daten (z.&nbsp;B. IP-Adresse, Datum und Uhrzeit des Zugriffs) in Server-Logfiles verarbeitet; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Die eingebettete Google-Maps-Karte wird von Google Ireland Ltd. bereitgestellt; beim Laden der Karte können Daten an Google übertragen werden. Verantwortliche Stelle: Esso-Station Burgert, Ulrike Burgert, Fautenbacher Straße 20, 77855 Achern, info@esso-achern.de. Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.<br><br>
+          <em>Hinweis: Diese Datenschutzerklärung sollte vor Veröffentlichung rechtlich geprüft werden.</em>
+        </p>
+      </details>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Esso-Station Burgert · Alle Rechte vorbehalten</span>
+      <a class="credit" href="https://nemesis-itservice.de" target="_blank" rel="noopener">Designed by NEMESIS - IT Service</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ Mobile Aktionsleiste ══ -->
+<div class="action-bar">
+  <a class="call" href="tel:+49784121973">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Anrufen
+  </a>
+  <a class="route" href="https://www.google.com/maps/search/?api=1&amp;query=Esso+Station+Fautenbacher+Stra%C3%9Fe+20+77855+Achern" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+    Route planen
+  </a>
+</div>
+
+</body>
+</html>
