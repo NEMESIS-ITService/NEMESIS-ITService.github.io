@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Villa Großsteinfeld — seit 1905</title>
+<meta name="description" content="Villa Großsteinfeld in Achern. Stil-Altbau von 1905, kernsaniert und in eine moderne Interpretation geführt. Architektur, Kunst und Gartendesign.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="assets/villa-bilder.js"></script>
+<style>
+/* ============================================================
+   Villa Großsteinfeld — Redesign-Prototyp
+   Design-Richtung: Editorial-Luxus
+   ============================================================ */
+
+:root{
+  --paper:      #F6F2EB;
+  --paper-2:    #EEE8DD;
+  --paper-3:    #E4DCCE;
+  --ink:        #17140F;
+  --ink-soft:   #3B342A;
+  --muted:      #7E7466;
+  --brass:      #A67C3D;
+  --brass-lite: #C9A468;
+  --line:       rgba(23,20,15,.13);
+  --line-strong:rgba(23,20,15,.26);
+
+  --display: "Cormorant Garamond", "Iowan Old Style", Garamond, Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --pad: clamp(20px, 5vw, 80px);
+  --maxw: 1400px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(15px,.55vw + 13px,17px);line-height:1.75;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* ---------- Typografie ---------- */
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;margin:0;letter-spacing:.005em}
+.display{
+  font-family:var(--display);font-weight:300;line-height:.98;
+  font-size:clamp(2.9rem,7.4vw,7.4rem);letter-spacing:-.015em;
+}
+.h-sec{
+  font-family:var(--display);font-weight:300;line-height:1.02;
+  font-size:clamp(2.2rem,4.6vw,4.4rem);letter-spacing:-.01em;
+}
+.h-sub{
+  font-family:var(--display);font-weight:400;line-height:1.15;
+  font-size:clamp(1.35rem,1.9vw,1.9rem);
+}
+.eyebrow{
+  font-family:var(--sans);font-weight:400;font-size:.685rem;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--brass);
+}
+.lede{
+  font-family:var(--display);font-size:clamp(1.15rem,1.65vw,1.6rem);
+  line-height:1.5;font-weight:300;color:var(--ink-soft);
+}
+.body p{margin:0 0 1.15em}
+.body p:last-child{margin-bottom:0}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.quote{
+  font-family:var(--display);font-style:italic;font-weight:300;
+  font-size:clamp(1.5rem,3.1vw,2.9rem);line-height:1.25;letter-spacing:-.01em;
+}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.narrow{max-width:760px}
+section.block{padding:clamp(64px,9vw,150px) 0}
+.grid{display:grid;gap:clamp(28px,4vw,70px)}
+@media(min-width:900px){
+  .g-2{grid-template-columns:1fr 1fr}
+  .g-editorial{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start}
+  .g-editorial.flip{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  transition:background .5s var(--ease),box-shadow .5s var(--ease),backdrop-filter .5s;
+}
+header::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to bottom,rgba(10,9,7,.62),rgba(10,9,7,0));
+  opacity:1;transition:opacity .5s var(--ease);pointer-events:none;
+}
+header.solid{background:rgba(246,242,235,.93);backdrop-filter:saturate(140%) blur(14px);box-shadow:0 1px 0 var(--line)}
+header.solid::after{opacity:0}
+.bar{
+  max-width:var(--maxw);margin:0 auto;padding:clamp(14px,2vw,26px) var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;flex-direction:column;line-height:1;color:#F3EDE2;transition:color .5s var(--ease)}
+header.solid .brand{color:var(--ink)}
+.brand b{font-family:var(--display);font-weight:300;font-size:clamp(1.25rem,2.1vw,1.85rem);letter-spacing:.01em}
+.brand i{font-family:var(--display);font-style:italic;font-size:.78rem;letter-spacing:.16em;opacity:.72;margin-top:.34em}
+
+nav.main{display:none}
+@media(min-width:1000px){nav.main{display:flex;align-items:center;gap:clamp(18px,2.4vw,42px)}}
+.navitem{position:relative}
+.navlink{
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;
+  color:rgba(243,237,226,.86);padding:10px 0;display:inline-flex;align-items:center;gap:7px;
+  transition:color .35s var(--ease);white-space:nowrap;
+}
+header.solid .navlink{color:var(--ink-soft)}
+.navlink:hover,.navlink.active{color:var(--brass-lite)}
+header.solid .navlink:hover,header.solid .navlink.active{color:var(--brass)}
+.navlink::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.navlink.active::after,.navitem:hover .navlink::after{transform:scaleX(1)}
+.caret{width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.7}
+
+.submenu{
+  position:absolute;top:100%;left:-18px;min-width:190px;padding:10px 0;
+  background:var(--paper);border:1px solid var(--line);
+  box-shadow:0 22px 50px -22px rgba(23,20,15,.35);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
+}
+.navitem:hover .submenu,.navitem:focus-within .submenu{opacity:1;visibility:visible;transform:none}
+.submenu a{
+  display:block;padding:9px 22px;font-size:.7rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-soft);transition:background .25s,color .25s;
+}
+.submenu a:hover,.submenu a.active{background:var(--paper-2);color:var(--brass)}
+
+.burger{display:inline-flex;flex-direction:column;gap:5px;padding:10px 0}
+@media(min-width:1000px){.burger{display:none}}
+.burger span{display:block;width:26px;height:1px;background:#F3EDE2;transition:background .5s,transform .4s var(--ease),opacity .3s}
+header.solid .burger span{background:var(--ink)}
+body.menu-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.drawer{
+  position:fixed;inset:0;z-index:55;background:var(--paper);
+  padding:calc(clamp(14px,2vw,26px) * 2 + 62px) var(--pad) 40px;
+  display:flex;flex-direction:column;gap:2px;overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(-12px);
+  transition:opacity .45s var(--ease),transform .45s var(--ease),visibility .45s;
+}
+body.menu-open .drawer{opacity:1;visibility:visible;transform:none}
+.drawer a{
+  font-family:var(--display);font-size:1.9rem;font-weight:300;padding:.42em 0;
+  border-bottom:1px solid var(--line);
+}
+.drawer a.sub{font-size:1.15rem;padding-left:1.2em;color:var(--muted)}
+.drawer a.active{color:var(--brass)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#100E0B}
+.hero .bg{position:absolute;inset:-6% 0 -6% 0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.04)}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(9,8,6,.86) 0%,rgba(9,8,6,.34) 42%,rgba(9,8,6,.12) 70%,rgba(9,8,6,.5) 100%);
+}
+.hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,8vw,110px);color:#F6F1E7}
+.hero .display{color:#F7F2E8;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.hero .sub{
+  font-family:var(--display);font-style:italic;font-size:clamp(1rem,1.5vw,1.4rem);
+  letter-spacing:.14em;color:rgba(246,241,231,.82);margin-top:.7em;
+}
+.hero .eyebrow{color:var(--brass-lite)}
+.scrollcue{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,241,231,.6);
+}
+.scrollcue i{display:block;width:1px;height:52px;background:linear-gradient(rgba(246,241,231,.7),rgba(246,241,231,0));animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+/* page hero (Unterseiten) */
+.phero{position:relative;min-height:66svh;display:flex;align-items:flex-end;overflow:hidden;background:#100E0B}
+.phero .bg{position:absolute;inset:0}
+.phero .bg img{width:100%;height:100%;object-fit:cover}
+.phero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(9,8,6,.82),rgba(9,8,6,.15) 60%,rgba(9,8,6,.45))}
+.phero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(38px,6vw,80px);color:#F6F1E7}
+.phero .h-sec{color:#F7F2E8}
+.phero .eyebrow{color:var(--brass-lite)}
+
+/* ---------- Figure ---------- */
+figure{margin:0}
+.frame{position:relative;overflow:hidden;background:var(--paper-3)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),filter .8s var(--ease)}
+.frame.tall{aspect-ratio:3/4}
+/* natural = kein Zuschnitt, das Bild bestimmt die Höhe */
+.frame.natural{aspect-ratio:auto}
+.frame.natural img{height:auto;object-fit:contain}
+.frame.square{aspect-ratio:1/1}
+.frame.wide{aspect-ratio:16/10}
+.frame.pano{aspect-ratio:21/9}
+.zoom:hover .frame img{transform:scale(1.045)}
+figcaption{
+  margin-top:.85em;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+}
+.frame.broken{background:
+  linear-gradient(135deg,rgba(23,20,15,.035) 25%,transparent 25%,transparent 50%,rgba(23,20,15,.035) 50%,rgba(23,20,15,.035) 75%,transparent 75%) 0 0/14px 14px,
+  var(--paper-3);
+  box-shadow:inset 0 0 0 1px var(--line);
+}
+.frame.broken::after{
+  content:"Foto — " attr(data-label);position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;text-align:center;padding:18px;
+  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  word-break:break-all;line-height:1.7;
+}
+
+/* ---------- Galerie ---------- */
+.gal{display:grid;gap:clamp(10px,1.4vw,22px);grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.gal{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1180px){.gal.g4{grid-template-columns:repeat(4,1fr)}}
+.gal .cell{position:relative;cursor:zoom-in}
+.gal .cell .frame{aspect-ratio:1/1}
+.gal .cell.big{grid-column:span 2;grid-row:span 2}
+.gal .cell.big .frame{aspect-ratio:1/1}
+.gal .cell.w2{grid-column:span 2}
+.gal .cell.w2 .frame{aspect-ratio:16/9}
+.gal .cell::after{
+  content:"";position:absolute;inset:0;background:rgba(23,20,15,0);
+  transition:background .5s var(--ease);pointer-events:none;
+}
+.gal .cell:hover::after{background:rgba(23,20,15,.1)}
+.gal .cell:hover .frame img{transform:scale(1.05)}
+
+/* Rail (horizontal) */
+.rail{display:flex;gap:clamp(12px,1.6vw,26px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin}
+.rail::-webkit-scrollbar{height:3px}
+.rail::-webkit-scrollbar-thumb{background:var(--line-strong)}
+.rail .cell{flex:0 0 min(78vw,460px);scroll-snap-align:center;cursor:zoom-in}
+.rail .cell .frame{aspect-ratio:3/4}
+
+/* ---------- Vorher / Nachher ---------- */
+.ba{display:grid;gap:clamp(24px,3vw,52px);margin-top:clamp(34px,5vw,72px)}
+@media(min-width:940px){.ba-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:clamp(28px,3.4vw,56px);align-items:center}}
+.ba-stage{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper-3);cursor:pointer}
+.ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .9s var(--ease),transform 1.3s var(--ease)}
+.ba-stage .after{opacity:0;transform:scale(1.03)}
+.ba-stage.show-after .before{opacity:0;transform:scale(1.03)}
+.ba-stage.show-after .after{opacity:1;transform:none}
+.ba-toggle{
+  position:absolute;bottom:14px;left:14px;z-index:3;display:flex;
+  background:rgba(246,242,235,.92);backdrop-filter:blur(8px);
+  box-shadow:0 10px 30px -14px rgba(0,0,0,.5);
+}
+.ba-toggle button{
+  padding:9px 18px;font-size:.63rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-soft);transition:background .3s,color .3s;
+}
+.ba-toggle button.on{background:var(--ink);color:var(--paper)}
+.ba-copy .h-sub{margin-bottom:.55em}
+.ba-copy .split{display:grid;gap:14px}
+.ba-copy .split div{border-top:1px solid var(--line);padding-top:12px}
+.ba-copy .split b{display:block;font-family:var(--sans);font-weight:400;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:.4em}
+.ba-copy .split p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- Presse ---------- */
+.press{display:grid;gap:clamp(20px,2.4vw,36px)}
+@media(min-width:860px){.press{grid-template-columns:repeat(3,1fr)}}
+.card{
+  border:1px solid var(--line);padding:clamp(24px,2.6vw,40px);
+  display:flex;flex-direction:column;gap:16px;background:var(--paper);
+  transition:border-color .5s var(--ease),transform .6s var(--ease),box-shadow .6s var(--ease);
+}
+.card:hover{border-color:var(--line-strong);transform:translateY(-3px);box-shadow:0 26px 50px -34px rgba(23,20,15,.4)}
+.card .src{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+.card .q{font-family:var(--display);font-size:clamp(1.25rem,1.9vw,1.7rem);line-height:1.25;font-weight:300}
+.card p{margin:0;font-size:.93rem;color:var(--ink-soft)}
+.card .frame{aspect-ratio:4/3;margin-top:auto}
+
+/* ---------- Bandzitat ---------- */
+.band{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,130px) 0;position:relative;overflow:hidden}
+.band .eyebrow{color:var(--brass-lite)}
+.band .quote{color:#F5EFE4}
+.band cite{display:block;margin-top:1.4em;font-style:normal;font-family:var(--sans);font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,239,228,.55)}
+
+/* ---------- Kontakt / Footer ---------- */
+footer{background:var(--paper-2);border-top:1px solid var(--line);padding:clamp(52px,7vw,110px) 0 40px}
+.fgrid{display:grid;gap:clamp(30px,4vw,60px)}
+@media(min-width:820px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.fcol h4{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;font-family:var(--sans);font-weight:400;color:var(--brass);margin-bottom:1.1em}
+.fcol p,.fcol a{margin:0 0 .45em;font-size:.95rem;color:var(--ink-soft);display:block}
+.fcol a:hover{color:var(--brass)}
+.fbrand b{font-family:var(--display);font-weight:300;font-size:clamp(1.7rem,2.6vw,2.4rem);display:block;line-height:1}
+.fbrand i{font-family:var(--display);font-style:italic;font-size:.85rem;letter-spacing:.16em;color:var(--muted)}
+.fbot{margin-top:clamp(40px,5vw,80px);padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- Lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(12,10,8,.96);display:none;place-items:center;padding:clamp(16px,4vw,60px)}
+.lb.on{display:grid}
+.lb img{max-width:100%;max-height:82vh;object-fit:contain;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.lb .cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:rgba(246,241,231,.6);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.lb .x,.lb .p,.lb .n{position:absolute;color:rgba(246,241,231,.75);padding:16px;transition:color .3s}
+.lb .x:hover,.lb .p:hover,.lb .n:hover{color:#fff}
+.lb .x{top:12px;right:16px;font-size:1.5rem;line-height:1}
+.lb .p{left:8px;top:50%;transform:translateY(-50%);font-size:2rem}
+.lb .n{right:8px;top:50%;transform:translateY(-50%);font-size:2rem}
+
+/* ---------- Reveal ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}*{animation:none!important}}
+
+/* ---------- Router ---------- */
+.page{display:none}
+.page.on{display:block}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="bar">
+    <a class="brand" href="#/" data-nav>
+      <b>Villa Großsteinfeld</b>
+      <i>seit 1905</i>
+    </a>
+
+    <nav class="main">
+      <div class="navitem"><a class="navlink" href="#/" data-nav data-page="home">Home</a></div>
+      <div class="navitem">
+        <a class="navlink" href="#/exterieur" data-nav data-page="exterieur">Exterieur <span class="caret"></span></a>
+        <div class="submenu">
+          <a href="#/gebaeude" data-nav data-page="gebaeude">Gebäude</a>
+          <a href="#/sanierung" data-nav data-page="sanierung">Sanierung</a>
+          <a href="#/park" data-nav data-page="park">Park</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <a class="navlink" href="#/interieur" data-nav data-page="interieur">Interieur <span class="caret"></span></a>
+        <div class="submenu">
+          <a href="#/kunst" data-nav data-page="kunst">Kunst</a>
+          <a href="#/kultur" data-nav data-page="kultur">Kultur</a>
+        </div>
+      </div>
+      <div class="navitem"><a class="navlink" href="#/person" data-nav data-page="person">Zur Person</a></div>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#/" data-nav data-page="home">Home</a>
+  <a href="#/exterieur" data-nav data-page="exterieur">Exterieur</a>
+  <a class="sub" href="#/gebaeude" data-nav data-page="gebaeude">Gebäude</a>
+  <a class="sub" href="#/sanierung" data-nav data-page="sanierung">Sanierung</a>
+  <a class="sub" href="#/park" data-nav data-page="park">Park</a>
+  <a href="#/interieur" data-nav data-page="interieur">Interieur</a>
+  <a class="sub" href="#/kunst" data-nav data-page="kunst">Kunst</a>
+  <a class="sub" href="#/kultur" data-nav data-page="kultur">Kultur</a>
+  <a href="#/person" data-nav data-page="person">Zur Person</a>
+</div>
+
+<main id="main"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol fbrand">
+        <b>Villa Großsteinfeld</b>
+        <i>seit 1905</i>
+        <p style="margin-top:1.4em;max-width:34ch">119 Jahre alt … und jeden Tag schöner.</p>
+      </div>
+      <div class="fcol">
+        <h4>Impressum</h4>
+        <p>Redaktionelle Verantwortung: P. Wolf</p>
+      </div>
+      <div class="fcol">
+        <h4>Adresse</h4>
+        <p>Villa Großsteinfeld</p>
+        <p>77855 Achern</p>
+      </div>
+      <div class="fcol">
+        <h4>Kontakt</h4>
+        <a href="tel:0784174 87">07841 7 48 7</a>
+        <a href="mailto:peter_wolf@online.de">peter_wolf@online.de</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr"></span> Villa Großsteinfeld</span>
+      <span>Privatwohnsitz — keine Besichtigungen</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb">
+  <button class="x" aria-label="Schließen">&times;</button>
+  <button class="p" aria-label="Zurück">&#8249;</button>
+  <button class="n" aria-label="Weiter">&#8250;</button>
+  <img alt="">
+  <div class="cap"></div>
+</div>
+
+<script>
+/* ============================================================
+   Bildquellen
+   ============================================================ */
+const M = window.VILLA_IMAGES || {};
+
+/* Bildauflösung:
+   1. lokale Datei aus assets/villa-bilder.js  ->  bilder/<datei>
+   2. sonst signierter CDN-Link der Bestandsseite (funktioniert nur auf
+      villa-grosssteinfeld.de selbst — das CDN lehnt Fremdaufrufe ab)
+   3. sonst gestalteter Platzhalter mit Dateinamen                        */
+function src(name){
+  const e = M[name];
+  if(!e) return '';
+  if(e.file) return 'bilder/' + encodeURIComponent(e.file);
+  return e.url || '';
+}
+
+function fig(name, cls, caption, label){
+  const u = src(name);
+  const c = 'frame ' + (cls||'wide');
+  const cap = caption ? '<figcaption>'+caption+'</figcaption>' : '';
+  const lbl = (label||caption||name);
+  if(!u) return '<figure class="zoom"><div class="'+c+' broken" data-label="'+lbl+'"></div>'+cap+'</figure>';
+  return '<figure class="zoom"><div class="'+c+'" data-label="'+lbl+'">'
+       + '<img src="'+u+'" alt="'+lbl.replace(/"/g,'')+'" loading="lazy" decoding="async">'
+       + '</div>'+cap+'</figure>';
+}
+
+function gal(list, opts){
+  opts = opts||{};
+  const cells = list.map((it,i)=>{
+    const name = typeof it === 'string' ? it : it.n;
+    const mod  = typeof it === 'string' ? '' : (it.c||'');
+    const u = src(name);
+    const inner = u
+      ? '<img src="'+u+'" alt="Villa Großsteinfeld" loading="lazy" decoding="async">'
+      : '';
+    return '<div class="cell '+mod+'" data-lb="'+name+'">'
+         + '<div class="frame'+(u?'':' broken')+'" data-label="'+name+'">'+inner+'</div></div>';
+  }).join('');
+  return '<div class="'+(opts.rail?'rail':'gal'+(opts.four?' g4':''))+'">'+cells+'</div>';
+}
+
+/* ============================================================
+   Inhalte — Texte 1:1 von villa-grosssteinfeld.de
+   ============================================================ */
+
+const HOME = `
+<section class="hero">
+  <div class="bg" data-parallax>
+    ${src('20220323_173630.jpg') ? '<img src="'+src('20220323_173630.jpg')+'" alt="Villa Großsteinfeld" fetchpriority="high">' : ''}
+  </div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <p class="eyebrow rv">Achern · Baden</p>
+      <h1 class="display rv d1">Villa<br>Großsteinfeld</h1>
+      <p class="sub rv d2">seit 1905</p>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><i></i></div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div>
+        <p class="eyebrow rv">Willkommen</p>
+        <h2 class="h-sec rv d1" style="margin-top:.35em">Reden wir über Architektur, Kunst und Gartendesign</h2>
+      </div>
+      <div class="body rv d2" style="padding-top:.6em">
+        <p class="lede">Neugierig? Dann folgen Sie der Inspiration …</p>
+        <hr class="rule" style="margin:2em 0">
+        <p><strong style="font-weight:400">Fast fertig ist nie fertig.</strong> Jährliche Erweiterungen sind Bestandteil der Planung. Bleiben Sie dran.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid g-2">
+      <div class="rv">${fig('20210811_092243-89418415.jpg','square','','Skulptur am Tor')}</div>
+      <div class="rv d1">${fig('IMG_4513.JPG','square','','Pavillon im Park')}</div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0" id="stil">
+  <div class="wrap">
+    <p class="eyebrow rv">Stil.</p>
+    <div class="grid g-editorial" style="margin-top:clamp(28px,4vw,60px)">
+      <div class="rv">
+        <h3 class="h-sub" style="margin-bottom:1.1em">Gebäude Name</h3>
+        ${fig('20210603_200642-6daf2e07.jpg','wide','Gemarkung Großsteinfeld','Gemarkung Großsteinfeld')}
+      </div>
+      <div class="body rv d1">
+        <p>Das Anwesen liegt in der historischen Gemarkung Großsteinfeld und wird deshalb auch so treffend bezeichnet. Es war zum Zeitpunkt der Errichtung im Jahre 1905 ein singuläres Gebäude inmitten von Wiesen und Ackerflächen. Die im Original vorhandenen Architektenpläne weisen deshalb die Villa auch als „Landhausvilla“ aus, da sie von Natur umgeben war und die Stadtgrenzen Acherns deutlich entfernt lagen.</p>
+        <p>Schon damals wusste man sehr genau, weshalb man ein Gebiet „sprechend“ bezeichnet. Damit wurden Terrainverhältnisse bekundet und deuteten damit bereits vorab gewisse Orientierungshilfen oder Gemarkungsbesonderheiten an. Und tatsächlich ist der Grund und Boden in der Gemarkung Großsteinfeld mit einem hohen Stein- und Kies-Anteil und Lehm versetzt. Dabei sind die im Boden zu findenden Steine im Querschnitt relativ groß und belegen die erweiterte Bezeichnung. Die Bodenqualität für landwirtschaftliche Nutzung war also nicht optimal. Die heutige Nutzung als Park mit Grünanlagen und Gewächsen erfordert an vielen Stellen einen Bodenaustausch.</p>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin:clamp(40px,6vw,90px) 0">
+
+    <div class="grid g-editorial">
+      <div class="rv">
+        <h3 class="h-sub" style="margin-bottom:1.1em">Gebäude Historie</h3>
+        ${fig('006--283-29.JPG','wide','Historische Aufnahme','Historische Aufnahme')}
+      </div>
+      <div class="body rv d1">
+        <p>Die Villa wurde mit Bauantrag von 1903 im Jahre 1905 fertiggestellt. Der Bauherr war der Privatier Arthur Gissler aus Pforzheim, der den bis heute in Pforzheim renommierten Architekten Josef Roos für eine Landhausvilla beauftragte (siehe auch einschlägige Literatur zur städtebaulichen Geschichte und Persönlichkeiten Pforzheims). Welchen Hintergrund der Zuzug von Pforzheim nach Achern hatte, ist unbekannt. Als Grund könnte sich es um seine Ehefrau und um die bewusst gesuchte Nähe zur Illenau gehandelt haben (siehe Stadtgeschichte Achern und analoge Fälle).</p>
+        <p>Nach mehr als über 100 Jahren geringer Pflege- und Instandhaltung diverser Eigentümer wurde das Herrenhaus im Jahre 2015 mit hohem Aufwand umfangreich entkernt, kernsaniert und innen wie außen einer modernen Interpretation zugeführt. Die Gesamtplanung wurde vom neuen Eigentümer konzipiert.</p>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin:clamp(40px,6vw,90px) 0">
+
+    <div class="grid g-editorial">
+      <div class="rv">
+        <h3 class="h-sub" style="margin-bottom:1.1em">Gebäude Architektur</h3>
+        ${fig('20200913_192434.jpg','wide','Gründungsmauern aus Granit-Sandstein-Verbund','Gründungsmauern')}
+      </div>
+      <div class="body rv d1">
+        <p>Die Villa ist im Stil-Pluralismus als sogenanntes Drei-Seiten-Haus entworfen worden. Dabei werden die Gebäudeseiten jeweils stilistisch differenzierend mit barocken, klassizistischen und Jugendstil-Elementen ausgearbeitet. Die Straßenfassade zeigt klassizistische Rennaissence-Stilelemente mit Rundbögen, Turm und Erker.</p>
+        <p>Die Nordseite zeigt mit beeindruckenden 13 m Höhe und 22 m Breite ein Herrenhaus mit Jugendstilelementen u. a. mit Bleiglasfenster der Glashütte Achern und ausdifferenzierten Fenster- und Dachformaten. Während die Südseite eine Landhausvilla mit Balustraden-Balkon und mächtigem Dachverlauf zitiert.</p>
+        <p>Das Gebäude hat vier Geschosse. Der Keller mit seinen Gründungsmauern aus Granit-Sandstein-Verbund liegt auf Erdgeschossniveau.</p>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:clamp(34px,5vw,70px)">${fig('20220611_210713.jpg','pano','','Villa Großsteinfeld — Hof mit Großkandelaber')}</div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(22px,3vw,44px)">
+      <h2 class="h-sec rv">Impressionen</h2>
+      <p class="eyebrow rv d1" style="color:var(--muted)">Zum Vergrößern klicken</p>
+    </div>
+    <div class="rv">
+      ${gal([
+        {n:'20201107_194818-426b5e92.jpg', c:'big'},
+        '20201107_194942.jpg',
+        '20201107_195049.jpg',
+        '20221218_171303.jpg',
+        '20221218_172102-af2fac8e.jpg',
+        {n:'20210815_155025-00528bc1.jpg', c:'w2'},
+        '20221218_172310.jpg',
+        'IMG_3084.JPG'
+      ])}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap narrow" style="text-align:center">
+    <p class="eyebrow rv">Credo</p>
+    <blockquote class="quote rv d1" style="margin:1em 0 0">„119 Jahre alt … und jeden Tag schöner“</blockquote>
+    <cite class="rv d2">Villa Großsteinfeld</cite>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow rv">Presse &amp; Auszeichnungen</p>
+    <h2 class="h-sec rv d1" style="margin:.3em 0 clamp(28px,4vw,56px)">Neue alte Pracht</h2>
+    <div class="press">
+      <article class="card rv">
+        <span class="src">Althaus modernisieren</span>
+        <p class="q">„Neue alte Pracht“</p>
+        <p>Titelhaus-Cover. Prämiert mit einer Sonderreportage für hervorragende Renovierung eines Stil-Altbaus. 8 Seiten Reportage mit Fotostrecke inkl. Prolog auf Inhaltsseite.</p>
+        <p style="color:var(--brass)">Jetzt anfordern unter Kontakt.</p>
+      </article>
+      <article class="card rv d1">
+        <span class="src">BNN · ABB · Renaud</span>
+        <p class="q">„Beispiel für gelungene Sanierung“</p>
+        <p>Presse-Berichte in den Zeitungen BNN, ABB und weiteren. Sonderreport über Renovation.</p>
+        ${fig('2-df205328.jpg','wide','','Presseberichte')}
+      </article>
+      <article class="card rv d2">
+        <span class="src">ARD · arte</span>
+        <p class="q">Fernsehreportage</p>
+        <p>Dokumentation über Hausbauten. Geschichte und Gegenwart, Ästhetik und Nicht-Ästhetik.</p>
+        ${fig('arte-28bec656.jpg','wide','','ARD / arte Dokumentation')}
+      </article>
+    </div>
+
+    <div class="grid g-editorial" style="margin-top:clamp(40px,5vw,80px)">
+      <div class="rv"><h3 class="h-sub">Dokumentation bei ARD / arte</h3></div>
+      <div class="body rv d1">
+        <p>In einer mehrfach im März und April ausgestrahlten TV-Sendung der ARD bzw. des Fernsehsenders Arte wurde die 1905 in der Stadt Achern gebaute Villa Großsteinfeld in einem Kurzbeitrag präsentiert. Die 45-minütige Dokumentation erzählt die Geschichte des Traumhauses im Allgemeinen. Redaktionell wird im Beitrag über gelungene und nicht gelungen gestaltete Bauten privater Domizile berichtet und mit provokanter These „Paradies oder Spießerhölle?“ unterlegt.</p>
+        <p>Der 118-jährige historisch klassische Altbau wurde kurz als Kontrast zu den Neubauten der vergangenen 80 Jahre bis in die Gegenwart gezeigt. Inhaltlich erstreckt sich die Reportage über die Geschichte und Gegenwart der Einfamilienhäuser von Bergarbeitersiedlungen im Ruhrgebiet, über Neubaugebiete in Berlin und Schwarzwald bis hin zu Fertighaushersteller. Der Fernsehbeitrag setzt sich auch kritisch mit neuzeitlicher Ästhetik oder Nicht-Ästhetik auseinander. Die Arte-Filmcrew hatte die Außenaufnahmen bereits ein dreiviertel Jahr zuvor erstellt. Die Fernsehsendung wurde wie immer zweisprachig aufgezeichnet und in deutscher als auch französischer Version ausgestrahlt; dort mit dem Titel „La maison individuelle – Le rêve d’un chez soi“.</p>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin:clamp(40px,6vw,90px) 0">
+
+    <div class="grid g-editorial">
+      <div class="rv"><h3 class="h-sub">Photo Shootings</h3></div>
+      <div class="body rv d1">
+        <p>Wöchentlich ist die Villa Großsteinfeld im Focus einer Kamera oder eines Handys. Sei es für Selfies oder als Hobbyaufnahmen für die eigene Fotosammlung oder als Shooting-Wünsche für Hochzeitsbilder. Leider gab es auch schon zwei leichte Auffahrunfälle durch zu viel Schauen während des Fahrens. Fahren Sie also bitte vorsichtig. Kein Bild der Welt lohnt einen Sachschaden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <hr class="rule" style="margin-bottom:clamp(40px,6vw,90px)">
+    <div class="grid g-editorial">
+      <div class="rv">
+        <p class="eyebrow">Domäne</p>
+        <h2 class="h-sec" style="margin-top:.3em">Ein Name,<br>einmalig belegt</h2>
+      </div>
+      <div class="body rv d1">
+        <p>Die Bezeichnung Villa Großsteinfeld ist in Deutschland ausschließlich für dieses Gebäude bekundet und belegt.</p>
+        <p>Der Name spiegelt die geographische Lokation innerhalb der betreffenden Gemarkung wieder. Es gibt diesen als Bezeichnung für einen historischen Stilbau kein zweites Mal.</p>
+        <p>Die digitale Domain ist geschützt und ergänzt die Symbiose aus Gebäude, Baubuch mit historischen Plänen und eigener Webdomain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+const EXTERIEUR = `
+<section class="phero">
+  <div class="bg">${src('IMG_2728-4b345711.jpeg')?'<img src="'+src('IMG_2728-4b345711.jpeg')+'" alt="Exterieur">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Exterieur</p>
+    <h1 class="h-sec rv d1">Stil Pluralismus</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">La vie est en rose</h2></div>
+      <div class="body rv d1">
+        <p class="lede">Drei Seiten, drei Stilsprachen: barocke, klassizistische und Jugendstil-Elemente an einem Haus.</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:clamp(34px,5vw,70px)">
+      ${gal([
+        {n:'20220323_173615.jpg', c:'big'},
+        '20201128_190244.jpg',
+        '20221218_172238.jpg',
+        '20210815_155025.jpg',
+        '002+(3).JPG',
+        {n:'20201107_194942-9452ccce.jpg', c:'w2'},
+        '20210710_201417.jpg'
+      ], {four:true})}
+    </div>
+  </div>
+</section>
+`;
+
+const GEBAEUDE = `
+<section class="phero">
+  <div class="bg">${src('025+(2).JPG')?'<img src="'+src('025+(2).JPG')+'" alt="Gebäude">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Exterieur · Gebäude</p>
+    <h1 class="h-sec rv d1">Grandeur</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">Drei-Seiten-Haus</h2></div>
+      <div class="body rv d1">
+        <p>Die Nordseite zeigt mit beeindruckenden 13 m Höhe und 22 m Breite ein Herrenhaus mit Jugendstilelementen u. a. mit Bleiglasfenster der Glashütte Achern und ausdifferenzierten Fenster- und Dachformaten. Während die Südseite eine Landhausvilla mit Balustraden-Balkon und mächtigem Dachverlauf zitiert.</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:clamp(34px,5vw,70px)">
+      ${gal([
+        {n:'021+(3)-c7888dca.JPG', c:'big'},
+        'IMG_4516.JPG',
+        '009+(2).JPG',
+        '20210603_200642.jpg',
+        '20200913_192434.jpg'
+      ])}
+    </div>
+  </div>
+</section>
+`;
+
+const BA = [
+  { t:'Aussenfassade',
+    b:'009+(2)-e7a4d2bf.JPG', a:'20220611_210713.jpg',
+    fr:'Links im Bild eine außen angebaute historische Latrine, die früher in eine Grube abgeleitet wurde.',
+    he:'Nicht mehr vorhanden, Abriß.' },
+  { t:'Renaissence Wintergarten',
+    b:'066--283-29-1920w.JPG', a:'20201107_195034.jpg',
+    fr:'Links im Bild morsche gedoppelte Holzfenster, einfachverglast, mit undichtem Walmdach.',
+    he:'Maßgeschneiderte 3-fach-thermoverglaste schallgeschützte Großformatfenster mit innenliegenden integrierten Rollläden und engobiert glasierten Nelskamp Ziegeln.' },
+  { t:'Grosser Wintergarten',
+    b:'IMG_0947.JPG', a:'20210501_190432-0ef7b66b.jpg',
+    fr:'Links im Bild historische überdachte Wandelterasse mit Renaissence-Bögen aus Holz und Brüstung.',
+    he:'Zweifacher Wanddurchbruch mit Dachbalkenöffnung, Estrichdämmung, passgenau auf Bogenmitte gemaßten bodentiefen Großformat-Tür-Flügelfenster.' },
+  { t:'Hof Rotunde',
+    b:'016-7c33cf0a-1920w.JPG', a:'20201107_194818-f08c81fa.jpg',
+    fr:'Links im Bild Dekonstruktion von Anbauten, Garagen, Hofuntergründen; 28 LKW Containerladungen.',
+    he:'Massiv befestigte Halbrundanlage mit fünfflammigen Großkandelaber, Doppel-Orangerie-Carport und Grünanlage.' }
+];
+
+const SANIERUNG = `
+<section class="phero">
+  <div class="bg">${src('20201107_195034.jpg')?'<img src="'+src('20201107_195034.jpg')+'" alt="Sanierung">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Exterieur · Sanierung</p>
+    <h1 class="h-sec rv d1">Revitalisierung<br>vorher … nachher</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">Im Baubuch dokumentiert</h2></div>
+      <div class="body rv d1">
+        <p class="lede">Im Baubuch dokumentierte Sanierungsschritte zeigen die Ursprungszustände und deren notwendigen massiven Bauprozessschritte.</p>
+      </div>
+    </div>
+
+    <div class="ba">
+      ${BA.map((x,i)=>`
+      <article class="ba-item rv">
+        <div class="ba-stage" data-ba>
+          ${src(x.b)?'<img class="before" src="'+src(x.b)+'" alt="'+x.t+' – vorher" loading="lazy">':''}
+          ${src(x.a)?'<img class="after"  src="'+src(x.a)+'" alt="'+x.t+' – heute"  loading="lazy">':''}
+          <div class="ba-toggle">
+            <button class="on" data-v="before">Vorher</button>
+            <button data-v="after">Heute</button>
+          </div>
+        </div>
+        <div class="ba-copy">
+          <p class="eyebrow">0${i+1}</p>
+          <h3 class="h-sub">${x.t}</h3>
+          <div class="split">
+            <div><b>Früher</b><p>${x.fr}</p></div>
+            <div><b>Heute</b><p>${x.he}</p></div>
+          </div>
+        </div>
+      </article>`).join('')}
+    </div>
+  </div>
+</section>
+`;
+
+const PARK = `
+<section class="phero">
+  <div class="bg">${src('20200913_192705-178cc448.jpg')?'<img src="'+src('20200913_192705-178cc448.jpg')+'" alt="Park">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Exterieur · Park</p>
+    <h1 class="h-sec rv d1">Parkkunst</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">Florales Orchester</h2></div>
+      <div class="body rv d1">
+        <p>Der Gartenstil spiegelt in grober Anlehnung an den Barock eine stringente Formgebung wieder, die durch 90°-Winkel-Fassungen streng geometrisch veranlagt ist. Immergrüne Pflanzobjekte werden domestiziert und auf Form getrimmt. Das Konzept für die Gesamtanlage umfasst ca. weitere 5 Jahre.</p>
+        <p class="lede" style="margin-top:1.4em">Grün-Konzept im Einklang mit der Natur.</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:clamp(34px,5vw,70px)">
+      ${gal([
+        {n:'20220611_210934.jpg', c:'big'},
+        '20230603_201627.jpg',
+        '20210612_202628-bc463a3c.jpg',
+        '20210603_200607.jpg',
+        '20230529_150209.jpg',
+        {n:'20210510_181859-5a9ac061-0f449c50.jpg', c:'w2'},
+        '20230513_200322.jpg',
+        'IMG_3612.JPG',
+        '20230514_095841.jpg',
+        '20190503_155239-e63ff460.jpg',
+        {n:'IMG_3007-c76793e3.JPG', c:'w2'},
+        '20230529_145350.jpg',
+        '20210711_191912.jpg',
+        '20210711_191822.jpg',
+        '006+(4).JPG'
+      ], {four:true})}
+    </div>
+  </div>
+</section>
+`;
+
+const INTERIEUR = `
+<section class="phero">
+  <div class="bg">${src('20210509_155214.jpg')?'<img src="'+src('20210509_155214.jpg')+'" alt="Interieur">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Interieur</p>
+    <h1 class="h-sec rv d1">Eklektisch</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">Moderne Interpretation</h2></div>
+      <div class="body rv d1">
+        <p>Nach mehr als über 100 Jahren geringer Pflege- und Instandhaltung diverser Eigentümer wurde das Herrenhaus im Jahre 2015 mit hohem Aufwand umfangreich entkernt, kernsaniert und innen wie außen einer modernen Interpretation zugeführt.</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:clamp(34px,5vw,70px)">
+      ${gal([
+        {n:'20210502_173140.jpg', c:'big'},
+        '20210725_185044.jpg',
+        '20210509_155414.jpg',
+        '040-07d62d2d-5fc28e46.JPG',
+        '20210501_190619.jpg',
+        {n:'20210501_190548-d696dcbc.jpg', c:'w2'},
+        '20210509_155944.jpg',
+        'IMG_4506.JPG',
+        '011-858f2240-1920w.JPG',
+        '20210501_190707.jpg',
+        {n:'20210501_190001.jpg', c:'w2'},
+        '014--283-29-1920w.JPG',
+        '20210501_190425.jpg',
+        '20210501_190953.jpg'
+      ], {four:true})}
+    </div>
+  </div>
+</section>
+`;
+
+const KUNST = `
+<section class="phero">
+  <div class="bg">${src('20210509_155633-32268ad8.jpg')?'<img src="'+src('20210509_155633-32268ad8.jpg')+'" alt="Kunst">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Interieur · Kunst</p>
+    <h1 class="h-sec rv d1">Kunst Galerie</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">Zeitgenössischer Expressionismus</h2></div>
+      <div class="body rv d1">
+        <p>Im Erdgeschoss befindet sich eine Gemälde-Galerie mit zahlreichen zeitgenössischen Werken des Expressionismus. Sie werden durch weitere Objekte im Gesamtgebäude über 4 Geschosse ergänzt und sind durchweg Großformate mit bis zu ca. 4 m². Die Werke werden durch hochwertige Rahmungen in Ausführungen mit Guggenheimer Schattenfuge oder Gold- und Silber-Barockleisten kontrastiert.</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:clamp(34px,5vw,70px)">
+      ${gal([
+        '021+(2).JPG',
+        '20210502_173421-536833c8.jpg',
+        '20210502_173604-31dbef84-1920w-cb9ebddb.jpg',
+        '20210502_173807.jpg',
+        '20210502_173719.jpg'
+      ], {rail:true})}
+    </div>
+    <p class="lede rv" style="margin-top:clamp(30px,4vw,56px);text-align:center">Jährlich wird die Kunstsammlung um neue Werke ergänzt.</p>
+  </div>
+</section>
+`;
+
+const KULTUR = `
+<section class="block" style="padding-top:calc(clamp(64px,9vw,150px) + 80px)">
+  <div class="wrap">
+    <p class="eyebrow rv">Interieur · Kultur</p>
+    <h1 class="h-sec rv d1" style="margin:.25em 0 clamp(30px,4vw,60px)">Kultur im Haus</h1>
+    <div class="grid g-editorial">
+      <div class="rv" style="max-width:480px">${fig('P1000566.JPG','wide','Harfe, 1,80 m Höhe, intarsienverziert','Harfe im Wintergarten')}</div>
+      <div class="body rv d1">
+        <p class="lede">Instrument: Harfe; 1,80 m Höhe; intarsienverziert.</p>
+        <p style="margin-top:1.2em">Musikerin: prämierte Musikstudentin aus Paris.</p>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+const PERSON = `
+<section class="phero">
+  <div class="bg">${src('040-07d62d2d-5fc28e46.JPG')?'<img src="'+src('040-07d62d2d-5fc28e46.JPG')+'" alt="Refugium">':''}</div>
+  <div class="phero-inner"><div class="wrap">
+    <p class="eyebrow rv">Zur Person</p>
+    <h1 class="h-sec rv d1">Refugium</h1>
+  </div></div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="grid g-editorial">
+      <div class="rv"><h2 class="h-sub">zum Gebäude</h2></div>
+      <div class="body rv d1">
+        <p class="lede">Das Anwesen ist ein reiner Privatwohnsitz.</p>
+        <hr class="rule" style="margin:1.8em 0" data-note="Hinweis: Der Satz &quot;Bild rechts: Private Office&quot; der Bestandsseite ist entfallen — das zugehoerige Foto lag als CSS-Hintergrund vor und wurde nicht mitgesichert.">
+        <p>Der Gebäudekorpus der Villa von 1905 verkörperte bereits vor über 100 Jahren Eleganz, Repräsentanz, Zeitlosigkeit, Massivität, Baukunst, Ausdruck, Solvenz, Charakter und Ästhethik.</p>
+        <p>Die Massivität des Gebäudes erinnert an einen Fels in der Brandung, umwogen vom tosendem Alltag. Ein Ort der Ruhe, der Besinnlichkeit, des Krafttankens. Eine Stätte der Kreativität und der Kunst.</p>
+        <p>Der Herrensitz strahlt durch seinen burgähnlichen Charakter Kraft aus, den insbesondere die Gründungsmauern aus Granit- und Sandsteinverbund mit bis zu einem Meter Dicke „untermauern“ … .</p>
+      </div>
+    </div>
+
+    <hr class="rule" style="margin:clamp(44px,6vw,96px) 0">
+
+    <div class="grid g-editorial flip">
+      <div class="body rv">
+        <p class="eyebrow">zur Person</p>
+        <h2 class="h-sec" style="margin:.25em 0 .8em">Peter Wolf</h2>
+        <p style="color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-size:.72rem">Eigentümer · Jahrgang 1969</p>
+        <hr class="rule" style="margin:1.6em 0">
+        <p><em>Geschäftsführer eines internationalen Konzern-Unternehmens.</em></p>
+        <p><em>Verleger. Gesellschafter.</em></p>
+        <p><em>Projektentwickler. Private Immobiliensparte mit weiteren Villen. Stilbauten Kollektion.</em></p>
+      </div>
+      <div class="rv d1" style="max-width:420px">${fig('20190212_191916-a114fb62-1920w-1920w-1920w.jpg','natural','','Peter Wolf')}</div>
+    </div>
+
+    <hr class="rule" style="margin:clamp(44px,6vw,96px) 0">
+
+    <div class="grid g-editorial">
+      <div class="rv">
+        <p class="eyebrow">Stilbauten Kollektion</p>
+        <h3 class="h-sub" style="margin-top:.3em">Weitere Objekte</h3>
+      </div>
+      <div class="body rv d1">
+        <p>Private Immobiliensparte mit weiteren Villen.</p>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:clamp(30px,4vw,56px)">
+      ${gal([
+        '20220715_171525.jpg',
+        'Bild1-e7029405.jpg',
+        '13-05102cee.jpg',
+        '14-28eaeb62-81e63191.jpg',
+        '12.jpg',
+        '25-ef534a49.jpg'
+      ], {rail:true})}
+    </div>
+  </div>
+</section>
+`;
+
+/* ============================================================
+   Router
+   ============================================================ */
+const PAGES = {
+  home:      {html:HOME,      title:'Villa Großsteinfeld — seit 1905'},
+  exterieur: {html:EXTERIEUR, title:'Exterieur — Villa Großsteinfeld'},
+  gebaeude:  {html:GEBAEUDE,  title:'Gebäude — Villa Großsteinfeld'},
+  sanierung: {html:SANIERUNG, title:'Sanierung — Villa Großsteinfeld'},
+  park:      {html:PARK,      title:'Park — Villa Großsteinfeld'},
+  interieur: {html:INTERIEUR, title:'Interieur — Villa Großsteinfeld'},
+  kunst:     {html:KUNST,     title:'Kunst — Villa Großsteinfeld'},
+  kultur:    {html:KULTUR,    title:'Kultur — Villa Großsteinfeld'},
+  person:    {html:PERSON,    title:'Zur Person — Villa Großsteinfeld'}
+};
+const ROUTES = {'':'home','/':'home','/exterieur':'exterieur','/gebaeude':'gebaeude','/sanierung':'sanierung','/park':'park','/interieur':'interieur','/kunst':'kunst','/kultur':'kultur','/person':'person'};
+
+const main = document.getElementById('main');
+const hd   = document.getElementById('hd');
+
+function currentKey(){
+  const h = location.hash.replace(/^#/,'');
+  return ROUTES[h] || 'home';
+}
+
+function render(){
+  const key = currentKey();
+  const p = PAGES[key];
+  main.innerHTML = '<div class="page on">'+p.html+'</div>';
+  document.title = p.title;
+  document.querySelectorAll('[data-page]').forEach(a=>a.classList.toggle('active', a.dataset.page===key));
+  document.body.classList.remove('menu-open');
+  window.scrollTo({top:0,behavior:'instant'});
+  wire();
+  onScroll();
+}
+
+/* ---------- Verdrahtung nach jedem Render ---------- */
+function wire(){
+  // Reveal
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // Fehlende / abgelaufene Bilder abfangen
+  document.querySelectorAll('main img').forEach(img=>{
+    img.addEventListener('error',()=>{
+      const p = img.parentElement;
+      if(p && p.classList.contains('frame')) p.classList.add('broken');
+      img.remove();
+    },{once:true});
+  });
+
+  // Vorher / Nachher
+  document.querySelectorAll('[data-ba]').forEach(st=>{
+    const btns = st.querySelectorAll('.ba-toggle button');
+    const set = v =>{
+      st.classList.toggle('show-after', v==='after');
+      btns.forEach(b=>b.classList.toggle('on', b.dataset.v===v));
+    };
+    btns.forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();set(b.dataset.v);}));
+    st.addEventListener('click',()=>set(st.classList.contains('show-after')?'before':'after'));
+  });
+
+  // Lightbox — nur Zellen mit tatsächlich geladenem Bild
+  document.querySelectorAll('[data-lb]').forEach(c=>{
+    c.addEventListener('click',()=>{
+      const live = [...document.querySelectorAll('[data-lb]')]
+        .filter(x=>x.querySelector('img'));
+      const i = live.indexOf(c);
+      if(i > -1) openLb(live, i);
+    });
+  });
+}
+
+/* ---------- Lightbox ---------- */
+const lb = document.getElementById('lb');
+const lbImg = lb.querySelector('img');
+const lbCap = lb.querySelector('.cap');
+let lbList = [], lbIdx = 0;
+
+function openLb(list,i){ lbList=list; lbIdx=i; showLb(); lb.classList.add('on'); document.body.style.overflow='hidden'; }
+function closeLb(){ lb.classList.remove('on'); document.body.style.overflow=''; }
+function showLb(){
+  const name = lbList[lbIdx].dataset.lb;
+  lbImg.src = src(name);
+  lbCap.textContent = (lbIdx+1)+' / '+lbList.length;
+}
+function stepLb(d){ lbIdx = (lbIdx + d + lbList.length) % lbList.length; showLb(); }
+
+lb.querySelector('.x').addEventListener('click',closeLb);
+lb.querySelector('.p').addEventListener('click',e=>{e.stopPropagation();stepLb(-1)});
+lb.querySelector('.n').addEventListener('click',e=>{e.stopPropagation();stepLb(1)});
+lb.addEventListener('click',e=>{ if(e.target===lb||e.target===lbImg) closeLb(); });
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('on')) return;
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowLeft') stepLb(-1);
+  if(e.key==='ArrowRight') stepLb(1);
+});
+
+/* ---------- Header / Parallax ---------- */
+function onScroll(){
+  const y = window.scrollY;
+  const hero = document.querySelector('.hero, .phero');
+  const trigger = hero ? Math.min(hero.offsetHeight - 90, 460) : 40;
+  hd.classList.toggle('solid', y > trigger);
+  const bg = document.querySelector('[data-parallax]');
+  if(bg && y < window.innerHeight) bg.style.transform = 'translateY('+(y*0.18)+'px)';
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+
+/* ---------- Menü ---------- */
+document.getElementById('burger').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
+document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+
+/* ---------- Start ---------- */
+window.addEventListener('hashchange',render);
+document.getElementById('yr').textContent = new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
